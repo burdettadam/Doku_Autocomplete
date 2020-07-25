@@ -12,10 +12,10 @@ function unique(a::Array{Int64,1},b::Array{Int64,1})
 end
 
 function is_duko(a::Array{Int64,1},b::Array{Int64,1})
-    for idx = 1:6:3
-        a = a[idx:idx + 3] 
-        b = b[idx:idx + 3]
-        !unique(a,b) && return false
+    for idx in [1,4,7]
+        ta = a[idx:idx + 2] 
+        tb = b[idx:idx + 2]
+        !unique(ta,tb) && return false
     end
     true
 end
@@ -24,14 +24,14 @@ function combos(first_rows::Array{Array{Int64,1},1},
                 first_rows_size::Int64, 
                 processed::Int64, 
                 redisClient::Any )
-    pairs = []
-    for i = 1 : first_rows_size #every possible first row
+    #pairs = []
+    @showprogress for i = 1 : first_rows_size #every possible first row
         i < processed && continue #processed row
         #pairs = [ first_rows[j] for j = 1:first_rows_size if is_duko(first_rows[i], first_rows[j])]
-        temp = pairs
-        pairs = [ j for j = 1:first_rows_size if is_duko(first_rows[i], first_rows[j])]
-        diff = setdiff(temp, pairs) 
-        length(diff) > 0 && println("index ",i," previous: ",temp[1]," After: ", pairs[1]," 1st_Diff: ", diff[1], " DIFF_SIZE: ", length(diff)," shift:",temp[1] - pairs[1])
+        #temp = pairs
+        pairs = [ first_rows[j] for j = 1:first_rows_size if is_duko(first_rows[i], first_rows[j])]
+        #diff = setdiff(temp, pairs) 
+        #length(diff) > 0 && println("index ",i," previous: ",temp[1]," After: ", pairs[1]," 1st_Diff: ", diff[1], " DIFF_SIZE: ", length(diff)," shift:",temp[1] - pairs[1])
         #@distributed for j = 1 : 362880 
         #    is_duko(first_rows[i], first_rows[j])
         #end
