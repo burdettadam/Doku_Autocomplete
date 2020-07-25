@@ -2,16 +2,16 @@ using Distributed
 using Combinatorics
 #using Redis
 using ProgressMeter
-using JLD
+@everywhere using JLD
 
-function unique(a::Array{Int64,1},b::Array{Int64,1})
+@everywhere function unique(a::Array{Int64,1},b::Array{Int64,1})
     for i = 1:3
         in(b[i],a) && return false
     end
     true
 end
 
-function is_duko(a::Array{Int64,1},b::Array{Int64,1})
+@everywhere function is_duko(a::Array{Int64,1},b::Array{Int64,1})
     for idx in [1,4,7]
         ta = a[idx:idx + 2] 
         tb = b[idx:idx + 2]
@@ -24,7 +24,7 @@ function combos(first_rows::Array{Array{Int64,1},1},
                 first_rows_size::Int64, 
                 processed::Int64)
     #pairs = []
-    @showprogress for i = 1 : first_rows_size #every possible first row
+    @showprogress @distributed for i = 1 : first_rows_size #every possible first row
         i < processed && continue #processed row
         #pairs = [ first_rows[j] for j = 1:first_rows_size if is_duko(first_rows[i], first_rows[j])]
         #temp = pairs
