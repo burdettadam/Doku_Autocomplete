@@ -1,4 +1,5 @@
-using Distributed
+@everywhere using Distributed
+@everywhere using SharedArrays
 using Combinatorics
 #using Redis
 using ProgressMeter
@@ -28,12 +29,13 @@ function combos(first_rows::Array{Array{Int64,1},1},
         i < processed && continue #processed row
         #pairs = [ first_rows[j] for j = 1:first_rows_size if is_duko(first_rows[i], first_rows[j])]
         #temp = pairs
-        pairs = [ first_rows[j] for j = 1:first_rows_size if is_duko(first_rows[i], first_rows[j])]
+        #pairs = [ first_rows[j] for j = 1:first_rows_size if is_duko(first_rows[i], first_rows[j])]
         #diff = setdiff(temp, pairs) 
         #length(diff) > 0 && println("index ",i," previous: ",temp[1]," After: ", pairs[1]," 1st_Diff: ", diff[1], " DIFF_SIZE: ", length(diff)," shift:",temp[1] - pairs[1])
-        #@distributed for j = 1 : 362880 
-        #    is_duko(first_rows[i], first_rows[j])
-        #end
+        pairs = SharedArray{Float64}(12096)
+        @distributed for j = 1 : first_rows_size 
+            is_duko(first_rows[i], first_rows[j]) && push!(pairs, first_rows[j]) 
+        end
         #println(length(pairs))
         key = join(string.(first_rows[i]))
         save(joinpath(@__DIR__,"sets/",join([key,".jld"])), key, pairs)
