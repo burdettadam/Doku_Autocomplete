@@ -79,7 +79,7 @@ function main()
     first_rows = Combinatorics.permutations([1,2,3,4,5,6,7,8,9]) |> collect 
     first_rows_size = length(first_rows)
     #processed = get()
-    processed = 1# if processed is None ? 0 : parse(Int8,processed)
+    processed = 201430# if processed is None ? 0 : parse(Int8,processed)
     #println(processed)
     combos(first_rows,first_rows_size, processed)
     println("------------ completed ------------")
