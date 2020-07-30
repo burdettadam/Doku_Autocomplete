@@ -74,7 +74,7 @@ For the seventh row, shift the original list to the right by 2 spaces.
 | 6 | 7 | 8 |   | 9 | 1 | 2 |   | 3 | 4 | 5 |
 | 3 | 4 | 5 |   | 6 | 7 | 8 |   | 9 | 1 | 2 |
 |   |   |   |   |   |   |   |   |   |   |   |
-| 8 | 9 | 1 |   | 2 | 3 | 4 |   |5  | 6 | 7 |
+| 8 | 9 | 1 |   | 2 | 3 | 4 |   | 5 | 6 | 7 |
 
 For the eighth row, shift the seventh row to the right by three spaces.
 
@@ -88,7 +88,7 @@ For the eighth row, shift the seventh row to the right by three spaces.
 | 6 | 7 | 8 |   | 9 | 1 | 2 |   | 3 | 4 | 5 |
 | 3 | 4 | 5 |   | 6 | 7 | 8 |   | 9 | 1 | 2 |
 |   |   |   |   |   |   |   |   |   |   |   |
-| 8 | 9 | 1 |   | 2 | 3 | 4 |   |5  | 6 | 7 |
+| 8 | 9 | 1 |   | 2 | 3 | 4 |   | 5 | 6 | 7 |
 | 5 | 6 | 7 |   | 8 | 9 | 1 |   | 2 | 3 | 4 |
 
 For the ninth and final row, shift the eighth row to the right by three spaces.
@@ -103,7 +103,7 @@ For the ninth and final row, shift the eighth row to the right by three spaces.
 | 6 | 7 | 8 |   | 9 | 1 | 2 |   | 3 | 4 | 5 |
 | 3 | 4 | 5 |   | 6 | 7 | 8 |   | 9 | 1 | 2 |
 |   |   |   |   |   |   |   |   |   |   |   |
-| 8 | 9 | 1 |   | 2 | 3 | 4 |   |5  | 6 | 7 |
+| 8 | 9 | 1 |   | 2 | 3 | 4 |   | 5 | 6 | 7 |
 | 5 | 6 | 7 |   | 8 | 9 | 1 |   | 2 | 3 | 4 |
 | 2 | 3 | 4 |   | 5 | 6 | 7 |   | 8 | 9 | 1 |
 
@@ -155,7 +155,7 @@ This allows a quick solution by lookup.
 First row of a floor is a given, there can only be one unique pattern for none repeating set of 9 symbols. In contrast, if we were generating all possible first row of symbols permutations, we would have to test and store 362,880 rows. This is because there is 362,880 permutations of [1,2,3,4,5,6,7,8,9]. Because we recognize Sudoku as a substitution cipher, we can reduce our search space by 362,880 times.
 
 Second row is the first row and every possible permutations of 
-the first row that is valid doku rules. A search space of 362,880 resulting in a list of possible second rows with the length of 362,880. Remember if we did not recognize the cypher pattern, this search space would increase by 362,880 times.
+the first row that is valid Sudoku rules. A search space of 362,880 resulting in a list of possible second rows with the length of 362,880. Remember if we did not recognize the cypher pattern, this search space would increase by 362,880 times.
 
 Third row is possible second rows and every possible permutations of the first row, which makes a search space of 131,681,894,400, resulting in 2,612,736 possible floors.
 In contrast restricting symbols to 1-9 will create 948,109,639,680, possible floors. [Sudopedia](http://sudopedia.enjoysudoku.com/Mathematics_of_Sudoku.html#5.2C524.2C751.2C496.2C156.2C892.2C842.2C531.2C225.2C600) suggests that 2,612,736 possible floors can be reduced to 416 unique floors, but this has not been verified here yet.
