@@ -6,7 +6,7 @@ Hate Sudoku? Me too! Don't get cought off guard again, keep a reference to this 
 ## How it works
 
 ## Why it works
-Sudoku puzzles can be created by following different instructions steaming from a valid first row. For example,
+Sudoku puzzles can be created by following different instructions stemming from a valid first row. For example,
 given a list of digits 1-9, untouched that list creates the first row.
 
 |   |   |   |   |   |   |   |   |   |   |   |
