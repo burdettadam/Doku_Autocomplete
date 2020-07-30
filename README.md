@@ -8,21 +8,28 @@ Hate Sudoku? Me too! Don't get cought off guard again, keep a reference to this 
 ## Why it works
 Sudoku puzzles can be created by following different instructions steaming from a valid first row. For example,
 given a list of digits 1-9, untouched that list creates the first row.
+
 |   |   |   |   |   |   |   |   |   |   |   |
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:| 
 | 1 | 2 | 3 |\| | 4 | 5 | 6 |\| | 7 | 8 | 9 |
+
 For the second row, shift the original list to the right by three spaces.
+
 |   |   |   |   |   |   |   |   |   |   |   |
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:| 
 | 1 | 2 | 3 |\| | 4 | 5 | 6 |\| | 7 | 8 | 9 |
 | 7 | 8 | 9 |\| | 1 | 2 | 3 |\| | 4 | 5 | 6 |
+
 For the third row, shift the second row to the right by three spaces.
+
 |   |   |   |   |   |   |   |   |   |   |   |
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:| 
 | 1 | 2 | 3 |\| | 4 | 5 | 6 |\| | 7 | 8 | 9 |
 | 7 | 8 | 9 |\| | 1 | 2 | 3 |\| | 4 | 5 | 6 |
 | 4 | 5 | 6 |\| | 7 | 8 | 9 |\| | 1 | 2 | 3 |
+
 For the fourth row, shift the original list to the right by one spaces.
+
 |   |   |   |   |   |   |   |   |   |   |   |
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:| 
 | 1 | 2 | 3 |\| | 4 | 5 | 6 |\| | 7 | 8 | 9 |
@@ -30,7 +37,9 @@ For the fourth row, shift the original list to the right by one spaces.
 | 4 | 5 | 6 |\| | 7 | 8 | 9 |\| | 1 | 2 | 3 |
 |   |   |   |   |   |   |   |   |   |   |   |
 | 9 | 1 | 2 |\| | 3 | 4 | 5 |\| | 6 | 7 | 8 |
-For the fith row, shift the fourth row to the right by three spaces.
+
+For the fifth row, shift the fourth row to the right by three spaces.
+
 |   |   |   |   |   |   |   |   |   |   |   |
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:| 
 | 1 | 2 | 3 |\| | 4 | 5 | 6 |\| | 7 | 8 | 9 |
@@ -39,7 +48,9 @@ For the fith row, shift the fourth row to the right by three spaces.
 |   |   |   |   |   |   |   |   |   |   |   |
 | 9 | 1 | 2 |\| | 3 | 4 | 5 |\| | 6 | 7 | 8 |
 | 6 | 7 | 8 |\| | 9 | 1 | 2 |\| | 3 | 4 | 5 |
+
 For the sixth row, shift the fifth row to the right by three spaces.
+
 |   |   |   |   |   |   |   |   |   |   |   |
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:| 
 | 1 | 2 | 3 |\| | 4 | 5 | 6 |\| | 7 | 8 | 9 |
@@ -50,7 +61,9 @@ For the sixth row, shift the fifth row to the right by three spaces.
 | 6 | 7 | 8 |\| | 9 | 1 | 2 |\| | 3 | 4 | 5 |
 | 3 | 4 | 5 |\| | 6 | 7 | 8 |\| | 9 | 1 | 2 |
 |   |   |   |   |   |   |   |   |   |   |   |
+
 For the seventh row, shift the original list to the right by 2 spaces.
+
 |   |   |   |   |   |   |   |   |   |   |   |
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:| 
 | 1 | 2 | 3 |\| | 4 | 5 | 6 |\| | 7 | 8 | 9 |
@@ -62,7 +75,9 @@ For the seventh row, shift the original list to the right by 2 spaces.
 | 3 | 4 | 5 |\| | 6 | 7 | 8 |\| | 9 | 1 | 2 |
 |   |   |   |   |   |   |   |   |   |   |   |
 | 8 | 9 | 1 |\| | 2 | 3 | 4 |\| |5  | 6 | 7 |
+
 For the eighth row, shift the seventh row to the right by three spaces.
+
 |   |   |   |   |   |   |   |   |   |   |   |
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:| 
 | 1 | 2 | 3 |\| | 4 | 5 | 6 |\| | 7 | 8 | 9 |
@@ -75,7 +90,9 @@ For the eighth row, shift the seventh row to the right by three spaces.
 |   |   |   |   |   |   |   |   |   |   |   |
 | 8 | 9 | 1 |\| | 2 | 3 | 4 |\| |5  | 6 | 7 |
 | 5 | 6 | 7 |\| | 8 | 9 | 1 |\| | 2 | 3 | 4 |
+
 For the ninth and final row, shift the eighth row to the right by three spaces.
+
 |   |   |   |   |   |   |   |   |   |   |   |
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:| 
 | 1 | 2 | 3 |\| | 4 | 5 | 6 |\| | 7 | 8 | 9 |
@@ -89,6 +106,7 @@ For the ninth and final row, shift the eighth row to the right by three spaces.
 | 8 | 9 | 1 |\| | 2 | 3 | 4 |\| |5  | 6 | 7 |
 | 5 | 6 | 7 |\| | 8 | 9 | 1 |\| | 2 | 3 | 4 |
 | 2 | 3 | 4 |\| | 5 | 6 | 7 |\| | 8 | 9 | 1 |
+
 Those steps (a sift of 3,3,1, 3,3,1, 3,3,1 of any list) will produce a 9X9 valid Sudoku puzzle, you can verify it by checking each row, column and sub grid only has a single occurrence of the digits between 1 and 9.
 
 Starting with a different list and following the same steps will produce another valid Sudoku. For example, starting with 4,8,9,3,7,1,5,2,6 will produce.
